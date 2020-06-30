@@ -1,0 +1,139 @@
+\documentclass{article}
+% Preamable
+\usepackage[margin=1in,headheight=12pt,includehead,includefoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont} %For checkmark symbol in itemizing
+\renewcommand{\labelitemii}{\ding{51}} %Change the item label level2
+\usepackage{epsfig} %For including EPS graphic files
+\usepackage{natbib} %For bibliography citation command
+\usepackage{hologo} %For BibTeX logo
+\usepackage{subfigure} %For making subfigure
+\usepackage{pdfsync} %For skim
+\usepackage{siunitx}
+%\usepackage{kotex}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{ltablex,booktabs}
+\usepackage{threeparttable}
+\usepackage{amsthm}
+
+% Line break at ',','.','/','[' for texttt
+\renewcommand{\texttt}[1]{%
+  \begingroup
+  \ttfamily
+  \begingroup\lccode`~=`/\lowercase{\endgroup\def~}{/\discretionary{}{}{}}%
+  \begingroup\lccode`~=`[\lowercase{\endgroup\def~}{[\discretionary{}{}{}}%
+  \begingroup\lccode`~=`.\lowercase{\endgroup\def~}{.\discretionary{}{}{}}%
+  \begingroup\lccode`~=`,\lowercase{\endgroup\def~}{,\discretionary{}{}{}}%
+  \catcode`/=\active\catcode`[=\active\catcode`.=\active\catcode`,=\active
+  \scantokens{#1\noexpand}%
+  \endgroup
+}
+
+% Include figure path
+\graphicspath{{./figures/}}
+
+% Macro
+% log 180826
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+
+
+
+% Fancy header
+\pagestyle{fancy}
+\fancyhead{} %clear all header fields
+\rhead{\bf Weekly progress report (\today)}
+\lfoot{From: JhY}
+\cfoot{To: JwN}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt} %use renewcommand to change the default settings
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Title; this section will be printed in a titlepage by \maketitle command
+\title{Weekly Progress Report}
+\author{Jihwan Yoon}
+\date{\today}
+
+% Begin document
+\begin{document}
+
+% Default setting
+\begin{center}
+ {\LARGE \bf Weekly Progress Report}\\[15pt]
+ {\Large From : Jihwan Yoon\\[5pt]  To : Prof. Jaewook Nam\\[10pt] Date: \today}\\[30pt]
+\end{center}
+
+
+\section{Major Tasks}
+\begin{enumerate}
+ \item Reading the Research Papers (Semi Lee, Jaeki Lee, Gates).
+      
+ \item FEniCS.
+ \item Silver Nanowire Project.
+       \begin{itemize}
+        \item Integrating equations of analytic 1-D Visco-Capillary model by using Python.
+       \end{itemize}
+\end{enumerate}
+\vspace{5mm}
+
+
+\section{Works Completed}
+\begin{enumerate}
+ \item DMAP experiment with KA.
+\end{enumerate}
+\vspace{5mm}
+
+\section{Works in Progress}
+\begin{enumerate}
+\item Following up the Cox's Paper.
+
+\clearpage
+\item Model for processes with vacuum. \newline 
+
+Total Result for the uniform die lip geometry. $ h(x)=H_0 =$constant
+
+\begin{align*} 
+\frac{P_\textup{amb}-P_\textup{d}}{\mu V_\textup{w}/H_0} & =1.34\frac{R_\textup{gt}}{N_\textup{Ca}^{1/3}} &\\
+\frac{P_\textup{d}-P_\textup{u}}{\mu V_\textup{w} /H_0 } & = 6[\frac{L_\textup{d}}{H_0}(1-\frac{2}{R_\textup{gt}}) +\frac{L_\textup{u}}{H_0}] & \mathit{Weeping} \\
+ \frac{P_\textup{d}-P_\textup{u}}{\mu V_\textup{w} /H_0} & = 6[\frac{L_\textup{d}}{H_0}(1-\frac{2}{R_\textup{gt}})] & \mathit{Bead Break-up}\\
+ \frac{P_\textup{u}-P_\textup{vac}}{\mu V_\textup{w} /H_0} & = -\frac{1}{N_\textup{Ca}} ( \cos(\theta _\textup{s})+\cos(\theta _\textup{d}))  &\\  
+\end{align*}
+
+
+
+Total Sum for Weeping
+$$0=6\left [ \frac{L_\textup{d}}{H_0}(1-\frac{2}{R_\textup{gt}}) +\frac{L_\textup{u}}{H_0} \right ]N_\textup{Ca} +1.34R_\textup{gt}N_\textup{Ca}^{2/3} -[\cos(\theta_s)+ \cos(\theta_d)+\frac{H_0}{\sigma}(P_\textup{amb}-P_\textup{vac})] $$
+Total Sum for Bead Break-up
+$$0=6\left [ \frac{L_\textup{d}}{H_0}(1-\frac{2}{R_\textup{gt}})  \right ]N_\textup{Ca} +1.34R_\textup{gt}N_\textup{Ca}^{2/3} -[\cos(\theta_s)+ \cos(\theta_d)+\frac{H_0}{\sigma}(P_\textup{amb}-P_\textup{vac})] $$
+
+$ ax^3+bx^2-c=0  $ for $x=N_\textup{Ca}^{1/3}$
+
+
+
+\begin{equation}
+\begin{split}
+x & = -\frac{\sqrt[3]{\frac{\sqrt{\left(- \frac{27 c}{a} + \frac{2 b^{3}}{a^{3}}\right)^{2} - \frac{4 b^{6}}{a^{6}}}}{2} - \frac{27 c}{2 a} + \frac{b^{3}}{a^{3}}}}{3} - \frac{b}{3 a} - \frac{b^{2}}{3 a^{2} \sqrt[3]{\frac{\sqrt{\left(- \frac{27 c}{a} + \frac{2 b^{3}}{a^{3}}\right)^{2} - \frac{4 b^{6}}{a^{6}}}}{2} - \frac{27 c}{2 a} + \frac{b^{3}}{a^{3}}}} \\
+x & = \alpha + \beta + \frac{\beta^2}{\alpha} \\
+\alpha & = -\frac{\sqrt[3]{\frac{\sqrt{\left(- \frac{27 c}{a} + \frac{2 b^{3}}{a^{3}}\right)^{2} - \frac{4 b^{6}}{a^{6}}}}{2} - \frac{27 c}{2 a} + \frac{b^{3}}{a^{3}}}}{3} \\
+\beta & = - \frac{b}{3 a}
+\end{split}
+\end{equation}
+
+$$ L_\textup{d} ,H_{0}, L_\textup{u}, P_\textup{vac}, \sigma => a, b, c => \alpha,  \beta, \frac{\beta^2}{\alpha} => x => N_\textup{Ca}$$
+
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            References                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%\bibliographystyle{unsrt}
+%\bibliography{ref}
+\end{document}
